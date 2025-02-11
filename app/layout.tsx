@@ -1,11 +1,11 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import type React from "react"
+import { Inter } from 'next/font/google'
+import { Navbar } from '@/components/Navbar'
 import "./globals.css"
-import type React from "react" // Import React
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Newsletter App",
   description: "Get personalized weekly newsletters based on your interests",
 }
@@ -17,10 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar />
+        <main className="container mx-auto mt-8 px-4">
+          {children}
+        </main>
+      </body>
     </html>
   )
 }
-
-
 
